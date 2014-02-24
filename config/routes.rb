@@ -1,4 +1,7 @@
 MsOAuthRuby::Application.routes.draw do
+  get '/oauth2/c/registration' => 'registration#new_client', as: :new_client
+  post '/oauth2/c/registration' => 'registration#create_client', as: :clients
+  get '/oauth2/c/:id' => 'registration#show_client', as: :client
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

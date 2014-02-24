@@ -17,3 +17,4 @@
 /.idea
 /config/database.yml
 /log
+/config/initializers/ms_oauth.rb

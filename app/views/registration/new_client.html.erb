@@ -1,0 +1,25 @@
+<% provide(:title, 'Εγγραφή Πελάτη') %>
+
+<%= form_for(@client) do |f| %>
+    <%= render 'error_messages' %>
+
+    <p>
+      <%= f.label :app_title, 'Τίτλος Εφαρμοργής' %><br />
+      <%= f.text_field :app_title %>
+    </p>
+    <p>
+      <%= f.label :redirection_uri, 'URI Ανακατεύθυνσης' %><br />
+      <%= f.url_field :redirection_uri %>
+    </p>
+    <p>
+      <%= f.label :email, 'e-mail' %><br />
+      <%= f.email_field :email %>
+    </p>
+    <p>
+      <%= f.label :client_type, 'Τύπος Πελάτη' %><br />
+      <%= f.select :client_type, [['Δημόσιος', 0], ['Εμπιστευτικός', 1]] %>
+    </p>
+    <p>
+      <%= f.submit 'Εγγραφή' %>
+    </p>
+<% end %>

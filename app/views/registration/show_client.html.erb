@@ -1,0 +1,25 @@
+<% provide(:title, 'Client Details') %>
+
+<h1>Client Details</h1>
+<table style="text-align: left;">
+  <tr>
+    <th>ID:</th>
+    <td><%= @client.id %></td>
+  </tr>
+  <tr>
+    <th>Secret:</th>
+    <td><%= @client.password %></td>
+  </tr>
+  <tr>
+    <th>e-mail:</th>
+    <td><%= @client.email %></td>
+  </tr>
+  <tr>
+    <th>Application Title:</th>
+    <td><%= @client.app_title %></td>
+  </tr>
+  <tr>
+    <th>Redirection URI:</th>
+    <td><%= @client.redirection_uri %></td>
+  </tr>
+</table>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140221023849) do
+ActiveRecord::Schema.define(version: 20140223174549) do
 
   create_table "access_token_profiles", force: true do |t|
     t.string   "access_token",                  limit: 128, null: false
@@ -58,11 +58,13 @@ ActiveRecord::Schema.define(version: 20140221023849) do
   end
 
   create_table "users", force: true do |t|
-    t.string  "email",                       null: false
+    t.string  "email",                                   null: false
+    t.text    "password",                                null: false
+    t.text    "salt"
     t.string  "type"
     t.string  "app_title",       limit: 120
     t.string  "redirection_uri"
-    t.integer "client_type",     limit: 2
+    t.integer "client_type",     limit: 2,   default: 1
   end
 
   add_index "users", ["redirection_uri"], name: "index_users_on_redirection_uri", unique: true, using: :btree

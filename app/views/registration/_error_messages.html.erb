@@ -1,0 +1,8 @@
+<% if @client.errors.any? %>
+    <div>The form contains <%= pluralize @client.errors.count, 'error' %>.</div>
+    <ul>
+    <% @client.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+<% end %>
