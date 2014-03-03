@@ -1,0 +1,10 @@
+<% provide(:title, 'Εξουσιοδότηση') %>
+
+<p>Η εφαρμογή "<%= @client.app_title %>" ζητάει εξουσιοδότηση για τα εξής δικαιώματα:</p>
+<ul>
+  <% @scopes.each do |scope| %>
+  <li><%= scope.description %></li>
+  <% end %>
+</ul>
+<%= link_to 'Δέχομαι', new_authorization_code_path(authz_rq: @authz_rq.to_query_string_param_value, authz_rq_accept: 1) %>
+<%= link_to 'Αρνούμαι', ms_oauth_authorization_access_denied_path(authz_rq: @authz_rq.to_query_string_param_value) %>

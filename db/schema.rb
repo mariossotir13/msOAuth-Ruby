@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140223174549) do
+ActiveRecord::Schema.define(version: 20140303190717) do
 
   create_table "access_token_profiles", force: true do |t|
     t.string   "access_token",                  limit: 128, null: false
@@ -39,9 +39,11 @@ ActiveRecord::Schema.define(version: 20140223174549) do
     t.string   "response_type",                  null: false
     t.text     "state",                          null: false
     t.string   "client_id",          limit: 43,  null: false
+    t.string   "resource_owner_id",  limit: 43,  null: false
   end
 
   add_index "authorization_code_profiles", ["client_id"], name: "index_authorization_code_profiles_on_client_id", using: :btree
+  add_index "authorization_code_profiles", ["resource_owner_id"], name: "index_authorization_code_profiles_on_resource_owner_id", using: :btree
 
   create_table "authorization_code_profiles_to_scopes", id: false, force: true do |t|
     t.integer "code_id",  null: false
